@@ -2,12 +2,12 @@
 import React, { useEffect, useRef } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
-const Modal = ({ isOpen, setIsOpen, closeModal, children }) => {
+const Modal = ({ isOpen, closeModal, children }) => {
   const modalRef = useRef();
 
   function checkClickOutside(e) {
     if (isOpen && modalRef.current && !modalRef.current.contains(e.target)) {
-      setIsOpen(false);
+      closeModal();
     }
   }
 

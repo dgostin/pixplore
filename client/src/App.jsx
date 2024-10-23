@@ -22,7 +22,6 @@ const App = () => {
     editors_choice: false,
     order: "popular",
   });
-  const [queryStr, setQueryStr] = useState("q=");
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -33,48 +32,19 @@ const App = () => {
   };
 
   useEffect(() => {
-    const url = `https://pixabay.com/api/?key=${
-      import.meta.env.VITE_PIXABAY_API_KEY
-    }&${queryStr}&pretty=true&per_page=30`;
-
-    // console.log(url);
-    // console.log(queryStr);
-
-    setIsLoading(true);
-
-    fetch(url)
+    fetch("/api/data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // Tell the backend you're sending JSON
+      },
+      body: JSON.stringify(queryData), // Convert the object to a JSON string
+    })
       .then((res) => res.json())
       .then((data) => {
-        setImages(data.hits);
+        setImages(data);
         setIsLoading(false);
-        // console.log(data.hits);
       })
       .catch((err) => console.log(err));
-  }, [queryStr]);
-
-  useEffect(() => {
-    // console.log(queryData);
-    // setTerm(formData.term);
-    setQueryStr(
-      "q=" +
-        queryData?.term +
-        "&image_type=" +
-        queryData?.image_type +
-        "&orientation=" +
-        queryData?.orientation +
-        "&category=" +
-        queryData?.category +
-        "&min_width=" +
-        queryData?.min_width +
-        "&min_height=" +
-        queryData?.min_height +
-        "&colors=" +
-        queryData?.colors +
-        "&editors_choice=" +
-        queryData?.editors_choice +
-        "&order=" +
-        queryData?.order
-    );
   }, [queryData]);
 
   return (
@@ -102,11 +72,7 @@ const App = () => {
           </div>
         )}
         <div className="mb-3"></div>
-        <Modal
-          isOpen={isModalOpen}
-          setIsOpen={setIsModalOpen}
-          closeModal={closeModal}
-        >
+        <Modal isOpen={isModalOpen} closeModal={closeModal}>
           <img
             src={
               selectedImageUrl
