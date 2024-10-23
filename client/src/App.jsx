@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import ImageSearchForm from "./ImageSearchForm";
 import Footer from "./Footer";
 import Header from "./Header";
+import LoadingSpinner from "./LoadingSpinner";
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -32,6 +33,7 @@ const App = () => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("/api/data", {
       method: "POST",
       headers: {
@@ -58,7 +60,7 @@ const App = () => {
           </h1>
         )}
         {isLoading ? (
-          <h1 className="text-6xl text-center mx-auto mt-32">Loading...</h1>
+          <LoadingSpinner />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
             {images.map((image) => (

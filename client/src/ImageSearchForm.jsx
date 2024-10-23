@@ -66,14 +66,11 @@ const ImageSearchForm = ({ submitForm }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(formData);
-    // You can handle the form submission here
     submitForm(formData);
   };
 
   const handleReset = (e) => {
     e.preventDefault();
-    // console.log(formData);
-    // You can handle the form submission here
     setFormData(defaultVals);
   };
 
@@ -215,9 +212,9 @@ const ImageSearchForm = ({ submitForm }) => {
           </select>
         </div>
 
-        <div className="flex align-middle">
+        <div>
           <button
-            className="w-20 bg-stone-700 text-white rounded-md hover:bg-slate-500 text-xl py-1 my-4 ml-3"
+            className="w-20 bg-stone-700 text-white hover:text-black rounded-md hover:bg-yellow-500 text-lg font-semibold py-2 mt-5 ml-3"
             onClick={handleReset}
           >
             Reset
@@ -229,7 +226,7 @@ const ImageSearchForm = ({ submitForm }) => {
       <div className="flex justify-center">
         <button
           type="submit"
-          className="w-1/3 p-2 bg-blue-800 text-white rounded-md hover:bg-blue-600"
+          className="w-1/3 p-2 bg-blue-800 text-white rounded-md hover:bg-blue-600 text-lg font-semibold"
         >
           Submit
         </button>
