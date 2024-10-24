@@ -213,7 +213,8 @@ const ImageSearchForm = ({ submitForm }) => {
         </div>
 
         <div>
-          <input type="submit" className="hidden" />
+          <input type="submit" className="hidden" />{" "}
+          {/* This needs to be here so that hitting "Enter" submits the form */}
           <button
             className="w-20 bg-stone-700 text-white hover:text-black rounded-md hover:bg-yellow-500 text-lg font-semibold py-2 mt-5 ml-3"
             onClick={handleReset}
