@@ -32,7 +32,7 @@ To run locally for development, follow these steps:
 
    ```bash
    git clone https://github.com/dgostin/pixplore.git
-   cd vin-express
+   cd pixplore
    ```
 
 2. **Install Dependencies:**  
