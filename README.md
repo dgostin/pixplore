@@ -1,6 +1,6 @@
 # Pixplore
 
-Pixplore is a full stack web application that retrieves images using the [Pixabay API]https://pixabay.com/service/about/api/). The frontend is built with Vite and React, while the backend is a Node.js/Express server.
+Pixplore is a full stack web application that retrieves images using the Pixabay API (https://pixabay.com/service/about/api/). The frontend is built with Vite and React, while the backend is a Node.js/Express server.
 
 ## Table of Contents
 
